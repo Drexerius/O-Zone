@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>O-Zone</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="icon" type="image/png" href="img/icon/favicon.ico">
+</head>
+
+<body>
+	<div class="shade"></div>
+	<header>
+		<img src="img/logo.png" alt="logo" class="logo">
+		<button class="catalog-button">
+			<img src="img/list.png" alt="list-icon">
+			Catalog
+		</button>
+		<div class="search-box">
+			<input type="search" placeholder="Search" class="search">
+			<button type="submit" class="search-button">
+		</div>
+		<button class="cart-button"><div class="counter"></div></button>
+		
+		<button class="settings-button"></button>
+	</header>
+	<nav class="catalog">
+		<button class="btn-clear">All categories</button>
+		<button class="btn-cons">Gaming consoles</button>
+		<button class="btn-accs">PC Accessories</button>
+		<button class="btn-soft">Games and software</button>
+	</nav>
+
+	<main>
+		<section class="filters">
+			<button>Filters <img src="img/arrow-down.ico" alt="arrow-down" class="arrow-down"><img src="img/arrow-right.ico" alt="arrow-right" class="arrow-right"></button>
+			<div class="filter-price">
+				<h4>Price</h4>
+				<div>
+					<label for="min">From</label>
+					<input type="number" id="min">
+				</div>
+				<div>
+					<label for="max">To</label>
+					<input type="number" id="max">
+				</div>
+			</div>
+			<div class="filter-sale">
+				<h4>Sale</h4>
+				<input type="checkbox" id="sale">						
+				<label for="sale">On sale</label>
+			</div>
+			<button class="apply-button">Apply</button>
+			<button class="clear-button">Clear</button>
+		</section>
+		 
+		<section class="goods">
+
+		</section>
+	</main>
+
+	<section class="cart">
+		<h3>Cart</h3>
+		<img class="cart-close" src="img/cross.png" alt="cross">
+		<div class="cart-total"></div>
+		<div class="cart-items"></div>
+		<div class="cart-empty">Cart is empty</div>
+	</section>
+
+	<script src="src/index.js"></script>
+</body>
+
+</html>

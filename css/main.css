@@ -1,0 +1,530 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face{
+    font-family:"GTEestiProText";
+    src:url("../fonts/GT-Eesti-Pro-Text-Bold.OTF") format("opentype");
+    font-weight:700
+}
+
+@font-face{
+    font-family:"GTEestiProText";
+    src:url("../fonts/GT-Eesti-Pro-Text-Regular.OTF") format("opentype");
+    font-weight:500
+}
+
+body{
+    font-family:'GTEestiProText', Arial, sans-serif
+}
+
+.shade {
+    background: rgb(0, 0, 0, 0.5); 
+    position: fixed; 
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: none;
+}
+
+/* Header ---------------------------------------------------------------------------------------------------- */
+
+header {
+    width: 80%;
+    min-width: 1000px;
+    height: 50px;
+    margin: 0 10% 10px 10%;
+    padding: 20px 0 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    z-index: 2;
+}
+
+header .logo {
+    cursor: pointer;
+    height: 35px;
+    width: 200px;
+    margin: 0 45px 0 0;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+header .search-box {
+    margin: 0 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 200px;
+}
+
+header .search-box input {
+    height: 40px;
+    flex: 1;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 18px;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+header .search-box button {
+    background-color: transparent;
+    background-image: url("../img/searching.png");
+    background-size: cover; 
+    border: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    margin: 0 0 0 3px;
+}
+
+header .catalog-button {
+    align-items: center;
+    border: 2px solid rgba(40,80,255,1);
+    border-radius: 8px;
+    background: rgb(40,80,255);
+    background: linear-gradient(200deg, rgba(40,80,255,1) 0%, rgba(180,0,190,1) 100%);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row nowrap;
+    font-family: Cascadia Code;
+    font-size: 15px;
+    font-weight: 540;
+    height: 40px;
+    justify-content: space-evenly;
+    padding: 0 5px 0 3px;
+    width: 100px;
+}
+
+header .catalog-button img {
+    height: 25px;
+    width: 25px;
+}
+
+header .cart-button {
+    background-color: transparent;
+    background-image: url("../img/cart.png");
+    background-size: cover; 
+    border: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    position: relative;
+}
+
+header .counter {
+    font-family: Cascadia Code;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: red;;
+    position: absolute;
+    right: -10px;
+    top: 0;
+    display: none;
+    color: white;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 12px;
+}
+
+header .settings-button {
+    background-color: transparent;
+    background-image: url("../img/settings.png");
+    background-size: cover; 
+    border: 0;
+    cursor: pointer;
+    height: 36px;
+    width: 36px;
+    margin: 0 0 0 15px;
+}
+
+/* Main ---------------------------------------------------------------------------------------------------- */
+
+main {
+    width: 80%;
+    min-width: 1000px;
+    padding-top: 90px;
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+/* Filters ---------------------------------------------------------------------------------------------------- */
+
+.filters {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    width: 200px;
+    overflow: hidden;
+    transition: .3s;
+    -webkit-user-select: none;
+    user-select: none;
+    height: 300px;
+    position: fixed;
+}
+
+.filters button {
+    font-size: 25px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    border: 2px solid rgba(40,80,255,1);
+    border-radius: 8px;
+    background: rgb(40,80,255);
+    background: linear-gradient(130deg, rgba(40,80,255,1) 0%, rgba(180,0,190,1) 100%);
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.filters button:first-child {
+    margin: 0 0 10px 0;
+}
+
+.filters button img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.filters button .arrow-right {
+    display: none;
+}
+
+.filters h4 {
+    flex-basis: 100%;
+}
+
+.filters > div {
+    display: flex;
+    flex-flow: row wrap;   
+    justify-content: space-between;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.filters .filter-price div {
+    width: 45%;
+}
+
+.filters .filter-price div input{
+    width: 100%;
+    height: 30px;
+    padding: 5px 5px 2px 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.filters .filter-price label {
+    color: rgba(140, 140, 140, 1);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.filters .filter-sale {
+    padding-right: 100px;
+}
+
+.filters .filter-sale input{
+    appearance: none;
+    -webkit-appearance: none;
+    position: absolute;
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height:1px; 
+    width:1px; 
+    margin:-1px; 
+    padding:0;
+    border:0;
+    background-image: url(http://csscheckbox.com/checkboxes/lite-blue-check.png);
+}
+
+.filters .filter-sale input + label {
+	padding-left:22px;
+    height:15px; 
+	line-height:15px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:15px;
+    cursor: pointer;
+    background-image:url(http://csscheckbox.com/checkboxes/lite-blue-check.png);
+}
+
+.filters .filter-sale input:checked + label {
+    background-position: 0 -15px;
+}
+
+.filters .apply-button, .filters .clear-button{
+    font-size: 18px;
+    font-weight: normal;
+    width: 80%;
+    height: 35px;
+    text-align: center;
+    border-radius: 8px;
+    background: rgb(40,80,255);
+    color: white;
+    cursor: pointer;
+    align-self: center;
+    margin: 5px 0;
+}
+
+.filters .clear-button {
+    background: rgb(86, 116, 250);
+    border: 2px solid rgba(86, 116, 250)
+}
+
+/* Goods ---------------------------------------------------------------------------------------------------- */
+
+.goods {
+    flex: 1;
+    padding-left: 245px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.goods > div {
+    width: 25%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: 1px solid rgba(200, 200, 200, 0.5);
+    position: relative;
+    height: 400px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+.goods .item-img {
+    height: 230px;
+}
+
+.goods img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.goods .info-wrapper h5 {
+    font-weight: normal;
+}
+
+.goods .info-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    flex: 0.8;
+    font-size: 22px;
+}
+
+.goods button {
+    background-color: rgba(40,80,255,1);
+    border: 2px solid rgba(40,80,255,1);
+    border-radius: 5px;
+    color: white;
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.goods .remove-item {
+    display: none;
+}
+
+.goods .item-sale {
+    background: radial-gradient(circle, rgba(255,40,40,1) 0%, rgba(80,0,80,1) 100%);
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    top: 5px;
+    width: 80px;
+}
+
+.goods .not-found {
+    display: none;
+    flex: 1;
+    border: 0;
+}
+
+/* Catalog ---------------------------------------------------------------------------------------------------- */
+
+nav.catalog {
+    transition: .3s;
+    background-color: #e4e4e4;
+    width: 240px;
+    height:260px;
+    border-radius: 10px;
+    display: none;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 10;
+    position: absolute;
+    top: 80px;
+    -webkit-user-select: none;
+    user-select: none;
+    margin-left: 25%;
+}
+
+nav.catalog > button {
+    background-color: #3392FF;
+    width: 200px;
+    flex: 0.2;
+    font-size: 16px;
+    font-family: Cascadia Code;
+    color: #F1F1F1;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.not-found {
+    width: 100%;
+    margin: 50px 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-family: GTEestiProText;
+    font-size: 30px;
+}
+
+/* Cart ---------------------------------------------------------------------------------------------------- */
+
+section.cart {
+    display: none;
+    width: 30%;
+    height: 96%;
+    border: 1px solid black;
+    box-shadow: -10px 10px 20px 10px rgba(34, 60, 80, 0.2);
+    z-index: 120;
+    position: fixed;
+    right: 2%;
+    top: 2%;
+    background-color: white;
+    flex-flow: column nowrap;
+    align-items: start;
+}
+
+.cart .cart-items {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    overflow-y: scroll;
+}
+
+.cart h3 {
+    align-self: center;
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    border: 2px solid rgba(40,80,255,1);
+    border-radius: 8px;
+    background: rgb(40,80,255);
+    background: linear-gradient(130deg, rgba(40,80,255,1) 0%, rgba(180,0,190,1) 100%);
+    color: white;
+    width: 50%;
+    user-select: none;
+}
+
+.cart .cart-close {
+    width: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.cart .cart-total {
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+.cart .cart-empty {
+    align-self: center;
+    font-size: 24px;
+    margin-top: 20%;
+}
+
+.cart .item-card {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 10px 0;
+    width: 90%;
+    align-self: center;
+    min-height: 80px;
+}
+
+.cart .info-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: auto 5%;
+}
+
+.cart .item-img {
+    width: 20%;
+}
+
+.cart .item-card img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.cart .item-amount {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 30px;
+    margin-left: auto;
+    align-self: center;
+}
+ 
+.cart .item-amount input {
+    width: 30px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.cart .item-amount img {
+    width: 40%;
+    cursor: pointer;
+}
+
+.cart .item-sale, .cart .add-item, .cart .remove-item {
+    display: none;
+}
