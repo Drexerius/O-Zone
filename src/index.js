@@ -47,7 +47,7 @@ async function script() {
                     </div>
                     `);
                 })
-                document.querySelector('.goods').insertAdjacentHTML("beforeend", `<div class="not-found">No results for you request</div>`)
+                document.querySelector('.goods').insertAdjacentHTML("beforeend", `<div class="not-found">No results for your request</div>`)
     }            
     showItems();
 
