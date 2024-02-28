@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.settings-list {
+    list-style: none;
+    padding: 0;
+}
+.settings-item {
+    margin-bottom: 15px;
+}
+.settings-item label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.settings-item input[type="text"], .settings-item select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.settings-item input[type="checkbox"] {
+    margin-right: 5px;
+}
+.settings-item button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.settings-item button:hover {
+    background-color: #0056b3;
+}
+.back-button {
+    text-align: center;
+    margin-top: 20px;
+}
+.back-button button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.back-button button:hover {
+    background-color: #0056b3;
+}

@@ -99,8 +99,8 @@ header .catalog-button {
     cursor: pointer;
     display: flex;
     flex-flow: row nowrap;
-    font-family: Cascadia Code;
-    font-size: 15px;
+    font-family: Arial;
+    font-size: 17px;
     font-weight: 540;
     height: 40px;
     justify-content: space-evenly;
@@ -290,11 +290,11 @@ input::-webkit-inner-spin-button {
     align-self: center;
     margin: 5px 0;
 }
-
+/* 
 .filters .clear-button {
     background: rgb(86, 116, 250);
     border: 2px solid rgba(86, 116, 250)
-}
+} */
 
 /* Goods ---------------------------------------------------------------------------------------------------- */
 
@@ -379,12 +379,14 @@ input::-webkit-inner-spin-button {
 /* Catalog ---------------------------------------------------------------------------------------------------- */
 
 nav.catalog {
-    transition: .3s;
+    transition: max-height 0.4s ease, opacity 0.3s ease; /* Adjust timing and easing as needed */
     background-color: #e4e4e4;
     width: 240px;
     height:260px;
     border-radius: 10px;
-    display: none;
+    /* display: none; */
+    max-height: 0;
+    opacity: 0;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: space-evenly;
@@ -394,6 +396,14 @@ nav.catalog {
     -webkit-user-select: none;
     user-select: none;
     margin-left: 25%;
+}
+
+nav.catalog.show {
+    display: flex;
+    max-height: 300px;
+    opacity: 1;
+    transition: max-height 0.3s ease; /* Only transition max-height when showing */
+
 }
 
 nav.catalog > button {
@@ -507,11 +517,31 @@ section.cart {
 
 .cart .item-amount {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
-    width: 30px;
+    width: 70px;
     margin-left: auto;
     align-self: center;
+}
+
+.cart .item-amount .amount-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 40px;
+    margin-left: auto;
+    align-self: center;
+}
+
+.cart .item-amount .delete-container {
+    width: 30px;
+}
+
+.cart .delete-container img {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    margin-left: 10px;
 }
  
 .cart .item-amount input {
@@ -520,7 +550,7 @@ section.cart {
     margin-bottom: 5px;
 }
 
-.cart .item-amount img {
+.cart .item-amount .amount-container img {
     width: 40%;
     cursor: pointer;
 }

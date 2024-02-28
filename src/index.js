@@ -76,13 +76,19 @@ async function script() {
     // open/close catalog
     document.querySelector('.catalog-button').addEventListener('click', function() {
         document.querySelector('.shade').style.display='block';
-        document.querySelector('.catalog').style.display='flex';
+        document.querySelector('.catalog').classList.add('show');
+        document.querySelectorAll('.catalog > button').forEach(button => {
+            button.style.display = 'block';
+        });
     })
 
     document.querySelectorAll('.catalog > button, .shade').forEach(el => { 
         el.addEventListener('click', function() {
             document.querySelector('.shade').style.display='none';
-            document.querySelector('.catalog').style.display='none';
+            document.querySelectorAll('.catalog > button').forEach(button => {
+                button.style.display = 'none';
+            });
+            document.querySelector('.catalog').classList.remove('show');
         }); 
     })
 
@@ -190,9 +196,14 @@ async function script() {
 
             //add amount regulation
             clone.innerHTML += `<div class="item-amount">
+                <div class="amount-container">
                 <input type="number" value="1" min="0" class="amount-input"> 
                 <img src="img/minus.png" alt="minus" class="amount-minus">
                 <img src="img/plus.png" alt="plus" class="amount-plus">
+                </div>
+                <div class="delete-container">
+                    <img src="img/delete.png" alt="delete" class="delete-item">                
+                </div>
             </div>`
             clone.setAttribute('amount', 1);
             function updateAmount() {
@@ -213,6 +224,10 @@ async function script() {
             })
             clone.querySelector('.amount-plus').addEventListener('click', function () {
                 clone.querySelector('.amount-input').value++;
+                updateAmount();
+            })
+            clone.querySelector('.delete-item').addEventListener('click', function () {
+                clone.querySelector('.amount-input').value = 0;
                 updateAmount();
             })
 
